@@ -9,10 +9,6 @@ public class ImageActivity extends AppCompatActivity {
 
     private RadioButton wolf;
     private RadioButton bunny;
-    private RadioButton mole;
-    private Drawable moleimage;
-    private Drawable wolfimage;
-    private Drawable bunnyimage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,25 +16,22 @@ public class ImageActivity extends AppCompatActivity {
 
         wolf = findViewById(R.id.wolf);
         bunny = findViewById(R.id.bunny);
-        mole = findViewById(R.id.mole);
-        moleimage=getDrawable(R.drawable.mole);
-        wolfimage=getDrawable(R.drawable.wolf;
-        bunnyimage=getDrawable(R.drawable.how_much_is_a_pet_bunny);
     }
 
+
     @Override
-    public void BackPressed(){
+    public void onBackPressed(){
             int image;
             if(wolf.isChecked())
-                image=wolfimage.getAlpha();
+               image=1;
             else if(bunny.isChecked())
-                image=bunnyimage.getAlpha();
+                image=2;
             else
-                image=moleimage.getAlpha();
+                image=3;
         Intent i=new Intent();
-            i.putExtra("IMAGE",image);
-            setResult(RESULT_OK,i);
-            finish();
+        i.putExtra("IMAGE",image);
+        setResult(RESULT_OK,i);
+        finish();
     }
 
 
